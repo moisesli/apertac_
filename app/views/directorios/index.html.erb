@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<div class="page-header">
+  <h1>Lista de Directorios</h1>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>#id</th>
+      <th>Nombre empresa</th>
+      <th>RUC</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @directorios.each do |directorio| %>
+      <tr>
+        <td><%= directorio.id %></td>
+        <td><%= directorio.nombre_empresa %></td>
+        <td><%= directorio.ruc %></td>
+        <td>
+          <%= link_to 'ver', directorio, class: 'btn btn-default btn-sm' %>
+          <%= link_to 'editar', edit_directorio_path(directorio), class: 'btn btn-default btn-sm' %>
+          <%= link_to 'eliminar', directorio, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default btn-sm' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Directorio', new_directorio_path, class: 'btn btn-primary' %>

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="row">
+  <div class="col-lg-2"><b>Titulo:</b></div>
+  <div class="col-lg-10"><%= @apertac_pagina.titulo %></div>
+  <div class="col-lg-2"><b>Contenido:</b></div>
+  <div class="col-lg-10"><%= @apertac_pagina.contenido.html_safe %></div>
+  <div class="col-lg-2"><b>Imagenes:</b></div>
+  <div class="col-lg-10">
+    <%= image_tag(@apertac_pagina.imagen1.url(:thumb)) if @apertac_pagina.imagen1? %>
+    <%= image_tag(@apertac_pagina.imagen2.url(:thumb)) if @apertac_pagina.imagen2? %>
+    <%= image_tag(@apertac_pagina.imagen3.url(:thumb)) if @apertac_pagina.imagen3? %>
+    <%= image_tag(@apertac_pagina.imagen4.url(:thumb)) if @apertac_pagina.imagen4? %>
+    <%= image_tag(@apertac_pagina.imagen5.url(:thumb)) if @apertac_pagina.imagen5 %>
+    <%= image_tag(@apertac_pagina.imagen6.url(:thumb)) if @apertac_pagina.imagen6? %>
+    <%= image_tag(@apertac_pagina.imagen7.url(:thumb)) if @apertac_pagina.imagen7? %>
+    <%= image_tag(@apertac_pagina.imagen8.url(:thumb)) if @apertac_pagina.imagen8 %>  
+  </div>
+  <div class="col-lg-2"><b>Visible:</b></div>
+  <div class="col-lg-10"><%= @apertac_pagina.visible %></div>
+</div>
+
+<%= link_to 'Editar', edit_apertac_pagina_path(@apertac_pagina), class: 'btn btn-default btn-sm' %>
+<%= link_to 'Regresar', apertac_paginas_path, class: 'btn btn-default btn-sm' %>

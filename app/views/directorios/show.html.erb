@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre empresa:</strong>
+  <%= @directorio.nombre_empresa %>
+</p>
+
+<p>
+  <strong>Nombre responsable:</strong>
+  <%= @directorio.nombre_responsable %>
+</p>
+
+<p>
+  <strong>Logo:</strong>
+  <%= image_tag(@directorio.logo.url(:thumb)) if @directorio.logo? %>
+</p>
+
+<p>
+  <strong>Numero1:</strong>
+  <%= @directorio.numero1 %>
+</p>
+
+<p>
+  <strong>Numero2:</strong>
+  <%= @directorio.numero2 %>
+</p>
+
+<p>
+  <strong>Ruc:</strong>
+  <%= @directorio.ruc %>
+</p>
+
+<p>
+  <strong>Dni:</strong>
+  <%= @directorio.dni %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @directorio.descripcion %>
+</p>
+
+<p>
+  <strong>Contenido:</strong> <br />
+  <%= @directorio.contenido.html_safe %>
+</p>
+
+<p>
+  <strong>Imagenes:</strong><br />
+  <%= image_tag(@directorio.imagen1.url(:thumb)) if @directorio.imagen1? %>
+  <%= image_tag(@directorio.imagen2.url(:thumb)) if @directorio.imagen2? %>
+  <%= image_tag(@directorio.imagen3.url(:thumb)) if @directorio.imagen3? %>
+  <%= image_tag(@directorio.imagen4.url(:thumb)) if @directorio.imagen4? %>
+</p>
+
+
+<%= link_to 'editar', edit_directorio_path(@directorio), class: 'btn btn-primary' %>
+<%= link_to 'regresar', directorios_path, class: 'btn btn-primary' %>

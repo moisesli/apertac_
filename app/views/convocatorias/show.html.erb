@@ -1,0 +1,33 @@
+<%- model_class = Convocatoria -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:titulo) %>:</strong></dt>
+  <dd><%= @convocatoria.titulo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:descripcion) %>:</strong></dt>
+  <dd><%= @convocatoria.descripcion %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:contenido) %>:</strong></dt>
+  <dd><%= @convocatoria.contenido %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:visible) %>:</strong></dt>
+  <dd><%= @convocatoria.visible %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:imagen1) %>:</strong></dt>
+  <dd><%= image_tag(@convocatoria.imagen1.url(:thumb)) %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:imagen2) %>:</strong></dt>
+  <dd><%= image_tag(@convocatoria.imagen2.url(:thumb)) %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:imagen3) %>:</strong></dt>
+  <dd><%= image_tag(@convocatoria.imagen3.url(:thumb)) %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:imagen4) %>:</strong></dt>
+  <dd><%= image_tag(@convocatoria.imagen4.url(:thumb)) %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              convocatorias_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_convocatoria_path(@convocatoria), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              convocatoria_path(@convocatoria),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

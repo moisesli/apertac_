@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="row">
+  <div class="col-lg-2"><b>Titulo:</b></div>
+  <div class="col-lg-10"><%= @noticia.titulo %></div>
+  <div class="col-lg-2"><b>Resumen:</b></div>
+  <div class="col-lg-10"><%= @noticia.resumen %></div>
+  <div class="col-lg-2"><b>Contenido:</b></div>
+  <div class="col-lg-10"><%= @noticia.contenido.html_safe %></div>
+  <div class="col-lg-2"><b>Imagenes:</b></div>
+  <div class="col-lg-10">
+    <%= image_tag(@noticia.imagen1.url(:thumb)) if @noticia.imagen1? %>
+    <%= image_tag(@noticia.imagen2.url(:thumb)) if @noticia.imagen2? %>
+    <%= image_tag(@noticia.imagen3.url(:thumb)) if @noticia.imagen3? %>
+    <%= image_tag(@noticia.imagen4.url(:thumb)) if @noticia.imagen4? %>
+    <%= image_tag(@noticia.imagen5.url(:thumb)) if @noticia.imagen5 %>    
+  </div>
+  <div class="col-lg-2"><b>Visible:</b></div>
+  <div class="col-lg-10"><%= @noticia.visible %></div>
+</div>
+
+
+<%= link_to 'Editar', edit_noticia_path(@noticia), class: 'btn btn-default btn-sm' %>
+<%= link_to 'Regresar', noticias_path, class: 'btn btn-default btn-sm' %>
+
+<br />
+<br />

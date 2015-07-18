@@ -1,0 +1,62 @@
+<%- model_class = Presindente -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:nombre) %></th>
+      <th><%= model_class.human_attribute_name(:apellido) %></th>
+      <th><%= model_class.human_attribute_name(:dni) %></th>
+      <th><%= model_class.human_attribute_name(:telefono1) %></th>
+      <th><%= model_class.human_attribute_name(:telefono2) %></th>
+      <th><%= model_class.human_attribute_name(:ruc) %></th>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= model_class.human_attribute_name(:descripcion) %></th>
+      <th><%= model_class.human_attribute_name(:contenido) %></th>
+      <th><%= model_class.human_attribute_name(:foto) %></th>
+      <th><%= model_class.human_attribute_name(:imagen1) %></th>
+      <th><%= model_class.human_attribute_name(:imagen2) %></th>
+      <th><%= model_class.human_attribute_name(:imagen3) %></th>
+      <th><%= model_class.human_attribute_name(:imagen4) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @presidentes.each do |presindente| %>
+      <tr>
+        <td><%= link_to presindente.id, presindente_path(presindente) %></td>
+        <td><%= presindente.nombre %></td>
+        <td><%= presindente.apellido %></td>
+        <td><%= presindente.dni %></td>
+        <td><%= presindente.telefono1 %></td>
+        <td><%= presindente.telefono2 %></td>
+        <td><%= presindente.ruc %></td>
+        <td><%= presindente.email %></td>
+        <td><%= presindente.descripcion %></td>
+        <td><%= presindente.contenido %></td>
+        <td><%= presindente.foto %></td>
+        <td><%= presindente.imagen1 %></td>
+        <td><%= presindente.imagen2 %></td>
+        <td><%= presindente.imagen3 %></td>
+        <td><%= presindente.imagen4 %></td>
+        <td><%=l presindente.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_presindente_path(presindente), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      presindente_path(presindente),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_presindente_path,
+            :class => 'btn btn-primary' %>

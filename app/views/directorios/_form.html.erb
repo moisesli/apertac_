@@ -1,0 +1,105 @@
+<%= form_for(@directorio, :html => {class: 'form-horizontal', multipart: true}) do |f| %>
+  <% if @directorio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@directorio.errors.count, "error") %> prohibited this directorio from being saved:</h2>
+
+      <ul>
+      <% @directorio.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :nombre_empresa, class: 'col-sm-2 control-label' %>
+    <div class="col-lg-6">
+      <%= f.text_field :nombre_empresa, class: 'form-control' %>  
+    </div>    
+  </div>
+
+  <div class="form-group">
+    <%= f.label :nombre_responsable, class: 'col-sm-2 control-label' %>
+    <div class="col-lg-6">
+      <%= f.text_field :nombre_responsable, class: 'form-control' %>  
+    </div>    
+  </div>
+
+  <div class="form-group">
+    <%= f.label :logo, class: 'col-sm-2 control-label' %>
+    <div class="col-lg-2">
+      <%= image_tag(@directorio.logo.url(:thumb)) if @directorio.logo? %>
+      <%= f.file_field :logo, class: 'form-control' %>      
+    </div>  
+  </div>
+
+  <div class="form-group">
+    <%= f.label :numero1, class: 'col-sm-2 control-label' %>
+    <div class="col-lg-2">
+      <%= f.text_field :numero1, class: 'form-control' %>  
+    </div>    
+  </div>
+
+  <div class="form-group">
+    <%= f.label :numero2, class: 'col-sm-2 control-label' %>
+    <div class="col-lg-2">
+      <%= f.text_field :numero2, class: 'form-control' %>  
+    </div>    
+  </div>
+
+  <div class="form-group">
+    <%= f.label :ruc, class: 'col-sm-2 control-label' %>
+    <div class="col-lg-2">
+      <%= f.text_field :ruc, class: 'form-control' %>  
+    </div>    
+  </div>
+
+  <div class="form-group">
+    <%= f.label :dni, class: 'col-sm-2 control-label' %>
+    <div class="col-lg-2">
+      <%= f.text_field :dni, class: 'form-control' %>  
+    </div>    
+  </div>
+
+  <div class="form-group">
+    <%= f.label :descripcion, class: 'col-sm-2 control-label' %>
+    <div class="col-lg-6">
+      <%= f.text_area :descripcion, class: 'form-control' %>
+    </div>    
+  </div>
+
+  <div class="form-group">
+    <%= f.label :contenido, class: 'col-sm-2 control-label' %>
+    <div class="col-lg-8">
+      <%= f.text_area :contenido, class: 'ckeditor' %>  
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :imagenes, class: 'col-sm-2 control-label' %>
+    <div class="col-lg-2">
+      <%= image_tag(@directorio.imagen1.url(:thumb)) if @directorio.imagen1? %>
+      <%= f.file_field :imagen1, class: 'form-control' %>      
+    </div>
+    <div class="col-lg-2">
+      <%= image_tag(@directorio.imagen2.url(:thumb)) if @directorio.imagen2? %>
+      <%= f.file_field :imagen2, class: 'form-control' %>      
+    </div>
+    <div class="col-lg-2">
+      <%= image_tag(@directorio.imagen3.url(:thumb)) if @directorio.imagen3? %>
+      <%= f.file_field :imagen3, class: 'form-control' %>      
+    </div>
+    <div class="col-lg-2">
+      <%= image_tag(@directorio.imagen4.url(:thumb)) if @directorio.imagen4? %>
+      <%= f.file_field :imagen4, class: 'form-control' %>      
+    </div>    
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-6">
+      <%= f.submit class: 'btn btn-success' %>  
+    </div>    
+  </div> 
+
+<% end %>

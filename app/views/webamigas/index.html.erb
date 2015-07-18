@@ -1,0 +1,50 @@
+<%- model_class = Webamiga -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:titulo) %></th>
+      <th><%= model_class.human_attribute_name(:descripcion) %></th>
+      <th><%= model_class.human_attribute_name(:url) %></th>
+      <th><%= model_class.human_attribute_name(:logo) %></th>
+      <th><%= model_class.human_attribute_name(:contenido) %></th>
+      <th><%= model_class.human_attribute_name(:imagen1) %></th>
+      <th><%= model_class.human_attribute_name(:imagen2) %></th>
+      <th><%= model_class.human_attribute_name(:visible) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @webamigas.each do |webamiga| %>
+      <tr>
+        <td><%= link_to webamiga.id, webamiga_path(webamiga) %></td>
+        <td><%= webamiga.titulo %></td>
+        <td><%= webamiga.descripcion %></td>
+        <td><%= webamiga.url %></td>
+        <td><%= webamiga.logo %></td>
+        <td><%= webamiga.contenido %></td>
+        <td><%= webamiga.imagen1 %></td>
+        <td><%= webamiga.imagen2 %></td>
+        <td><%= webamiga.visible %></td>
+        <td><%=l webamiga.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_webamiga_path(webamiga), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      webamiga_path(webamiga),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_webamiga_path,
+            :class => 'btn btn-primary' %>

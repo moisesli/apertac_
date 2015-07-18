@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<div class="page-header">
+  <h1>Lista de Paginas Apertac <small><%= link_to 'Nuevo', new_apertac_pagina_path, class: 'btn btn-default' %></small></h1>  
+</div>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>#id</th>
+      <th>Titulo</th>
+      <th>Visible</th>
+      <th>acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @apertac_paginas.each do |apertac_pagina| %>
+      <tr>
+        <td><%= apertac_pagina.id %></td>
+        <td><%= apertac_pagina.titulo %></td>
+        <td><%= apertac_pagina.visible %></td>
+        <td>
+          <%= link_to 'Ver', apertac_pagina, class: 'btn btn-default btn-sm' %>
+          <%= link_to 'Editar', edit_apertac_pagina_path(apertac_pagina),  class: 'btn btn-default btn-sm' %>
+          <%= link_to 'Eliminar', apertac_pagina, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default btn-sm' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+

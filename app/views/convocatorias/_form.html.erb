@@ -1,0 +1,83 @@
+<%= form_for @convocatoria, :html => { :class => "form-horizontal convocatoria", multipart: true } do |f| %>
+
+    <% if @convocatoria.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@convocatoria.errors.count, "error") %> prohibited this convocatoria from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @convocatoria.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :titulo, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :titulo, :class => 'form-control' %>
+    </div>
+    <%= error_span(@convocatoria[:titulo]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :descripcion, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :descripcion, :class => 'form-control' %>
+    </div>
+    <%= error_span(@convocatoria[:descripcion]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :contenido, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :contenido, :class => 'form-control' %>
+    </div>
+    <%= error_span(@convocatoria[:contenido]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :visible, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :visible, [
+          ['Visible','visible'],
+          ['No Visible','no_visible']
+        ], :class => 'form-control' %>
+    </div>
+    <%= error_span(@convocatoria[:visible]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :imagen1, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.file_field :imagen1, :class => 'form-control' %>
+    </div>
+    <%= error_span(@convocatoria[:imagen1]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :imagen2, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.file_field :imagen2, :class => 'form-control' %>
+    </div>
+    <%= error_span(@convocatoria[:imagen2]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :imagen3, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.file_field :imagen3, :class => 'form-control' %>
+    </div>
+    <%= error_span(@convocatoria[:imagen3]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :imagen4, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.file_field :imagen4, :class => 'form-control' %>
+    </div>
+    <%= error_span(@convocatoria[:imagen4]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            convocatorias_path, :class => 'btn btn-default' %>
+
+<% end %>

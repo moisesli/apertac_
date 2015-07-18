@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<div class="page-header">
+  <h1>Lista de Noticias <small><%= link_to "<span class='glyphicon glyphicon-plus'></span> Nuevo".html_safe, new_noticia_path, class: 'btn btn-primary' %></small></h1>
+  
+</div>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>#id</th>
+      <th>Titulo</th>
+      <th>Accion</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @noticias.each do |noticia| %>
+      <tr>
+        <td><%= noticia.id %></td>
+        <td><%= noticia.titulo %></td>
+        <td>
+          <%= link_to 'Ver', noticia , class: 'btn btn-default btn-sm' %>
+          <%= link_to 'Edit', edit_noticia_path(noticia) , class: 'btn btn-default btn-sm' %>
+          <%= link_to 'Eliminar', noticia, method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn btn-default btn-sm' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

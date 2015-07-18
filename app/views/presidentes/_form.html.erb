@@ -1,0 +1,122 @@
+<%= form_for @presindente, :html => { :class => "form-horizontal presindente" } do |f| %>
+
+    <% if @presindente.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@presindente.errors.count, "error") %> prohibited this presindente from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @presindente.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :nombre, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :nombre, :class => 'form-control' %>
+    </div>
+    <%= error_span(@presindente[:nombre]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :apellido, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :apellido, :class => 'form-control' %>
+    </div>
+    <%= error_span(@presindente[:apellido]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :dni, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :dni, :class => 'form-control' %>
+    </div>
+    <%= error_span(@presindente[:dni]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :telefono1, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :telefono1, :class => 'form-control' %>
+    </div>
+    <%= error_span(@presindente[:telefono1]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :telefono2, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :telefono2, :class => 'form-control' %>
+    </div>
+    <%= error_span(@presindente[:telefono2]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :ruc, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ruc, :class => 'form-control' %>
+    </div>
+    <%= error_span(@presindente[:ruc]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :email, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :email, :class => 'form-control' %>
+    </div>
+    <%= error_span(@presindente[:email]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :descripcion, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :descripcion, :class => 'form-control' %>
+    </div>
+    <%= error_span(@presindente[:descripcion]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :contenido, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :contenido, :class => 'form-control' %>
+    </div>
+    <%= error_span(@presindente[:contenido]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :foto, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :foto, :class => 'form-control' %>
+    </div>
+    <%= error_span(@presindente[:foto]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :imagen1, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :imagen1, :class => 'form-control' %>
+    </div>
+    <%= error_span(@presindente[:imagen1]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :imagen2, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :imagen2, :class => 'form-control' %>
+    </div>
+    <%= error_span(@presindente[:imagen2]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :imagen3, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :imagen3, :class => 'form-control' %>
+    </div>
+    <%= error_span(@presindente[:imagen3]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :imagen4, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :imagen4, :class => 'form-control' %>
+    </div>
+    <%= error_span(@presindente[:imagen4]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            presidentes_path, :class => 'btn btn-default' %>
+
+<% end %>

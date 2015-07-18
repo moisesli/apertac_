@@ -1,0 +1,80 @@
+<%= form_for @webamiga, :html => { :class => "form-horizontal webamiga" } do |f| %>
+
+    <% if @webamiga.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@webamiga.errors.count, "error") %> prohibited this webamiga from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @webamiga.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :titulo, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :titulo, :class => 'form-control' %>
+    </div>
+    <%= error_span(@webamiga[:titulo]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :descripcion, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :descripcion, :class => 'form-control' %>
+    </div>
+    <%= error_span(@webamiga[:descripcion]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :url, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :url, :class => 'form-control' %>
+    </div>
+    <%= error_span(@webamiga[:url]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :logo, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :logo, :class => 'form-control' %>
+    </div>
+    <%= error_span(@webamiga[:logo]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :contenido, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :contenido, :class => 'form-control' %>
+    </div>
+    <%= error_span(@webamiga[:contenido]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :imagen1, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :imagen1, :class => 'form-control' %>
+    </div>
+    <%= error_span(@webamiga[:imagen1]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :imagen2, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :imagen2, :class => 'form-control' %>
+    </div>
+    <%= error_span(@webamiga[:imagen2]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :visible, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :visible, :class => 'form-control' %>
+    </div>
+    <%= error_span(@webamiga[:visible]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            webamigas_path, :class => 'btn btn-default' %>
+
+<% end %>

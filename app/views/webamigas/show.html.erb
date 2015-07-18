@@ -1,0 +1,33 @@
+<%- model_class = Webamiga -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:titulo) %>:</strong></dt>
+  <dd><%= @webamiga.titulo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:descripcion) %>:</strong></dt>
+  <dd><%= @webamiga.descripcion %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:url) %>:</strong></dt>
+  <dd><%= @webamiga.url %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logo) %>:</strong></dt>
+  <dd><%= @webamiga.logo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:contenido) %>:</strong></dt>
+  <dd><%= @webamiga.contenido %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:imagen1) %>:</strong></dt>
+  <dd><%= @webamiga.imagen1 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:imagen2) %>:</strong></dt>
+  <dd><%= @webamiga.imagen2 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:visible) %>:</strong></dt>
+  <dd><%= @webamiga.visible %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              webamigas_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_webamiga_path(@webamiga), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              webamiga_path(@webamiga),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

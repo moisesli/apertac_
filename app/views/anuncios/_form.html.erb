@@ -1,0 +1,111 @@
+<%= form_for @anuncio, :html => { :class => "form-horizontal anuncio", multipart: true } do |f| %>
+
+    <% if @anuncio.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@anuncio.errors.count, "error") %> prohibited this anuncio from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @anuncio.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :titulo, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :titulo, :class => 'form-control' %>
+    </div>
+    <%= error_span(@anuncio[:titulo]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :imagen, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.file_field :imagen, :class => 'form-control' %>
+    </div>
+    <%= error_span(@anuncio[:imagen]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :descripcion, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :descripcion, :class => 'form-control' %>
+    </div>
+    <%= error_span(@anuncio[:descripcion]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :contenido, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :contenido, :class => 'form-control' %>
+    </div>
+    <%= error_span(@anuncio[:contenido]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :imagen1, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.file_field :imagen1, :class => 'form-control' %>
+    </div>
+    <%= error_span(@anuncio[:imagen1]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :imagen2, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.file_field :imagen2, :class => 'form-control' %>
+    </div>
+    <%= error_span(@anuncio[:imagen2]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :imagen3, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.file_field :imagen3, :class => 'form-control' %>
+    </div>
+    <%= error_span(@anuncio[:imagen3]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :imagen4, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.file_field :imagen4, :class => 'form-control' %>
+    </div>
+    <%= error_span(@anuncio[:imagen4]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :imagen5, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.file_field :imagen5, :class => 'form-control' %>
+    </div>
+    <%= error_span(@anuncio[:imagen5]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :visible, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :visible,[
+          ['Visible', 'visible'],
+          ['No Visible', 'no_visible']
+        ], :class => 'form-control' %>
+    </div>
+    <%= error_span(@anuncio[:visible]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :tipo, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :tipo,[
+            ['Anuncio Comunitario', 'anuncio_comunitario'],
+            ['Anuncio Apertac', 'anuncio_apertac'],
+            ['Otros', 'otros']
+        ], :class => 'form-control' %>
+    </div>
+    <%= error_span(@anuncio[:tipo]) %>
+  </div>
+  <br />
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),anuncios_path, :class => 'btn btn-default' %>
+
+
+<% end %>
+
+

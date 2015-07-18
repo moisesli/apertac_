@@ -1,0 +1,2 @@
+module WebamigasHelper
+end

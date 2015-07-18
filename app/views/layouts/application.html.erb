@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Apertac" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Apertac" %>">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body id="fondo">
+    <div class="container" id="contenedor">
+        <%= image_tag'portico_apertac.png' %>
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">APERTAC</a>
+              </div>
+              <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Paginas <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">Nav header</li>
+                        <li><a href="#">Separated link</a></li>
+                        <li><a href="#">One more separated link</a></li>
+                      </ul>
+                    </li>                  
+                    <li><a href="#">Noticias</a></li>
+                    <li><a href="#">Servicios</a></li>
+                    <li><a href="#">Web Amigas</a></li>
+                    <li><a href="#">Ubicacion</a></li>
+                    <li><a href="#">Convocatorias</a></li>
+                    <li><a href="#about">Directorio</a></li>
+                    <li><a href="#contact">Contactenos</a></li>
+                </ul>
+                <ul class="nav navbar-nav pull-right">
+                  <li>
+                    <a href="/admins/index">
+                        <span class="glyphicon glyphicon-lock"></span>
+                        Admin
+                    </a></li>
+                </ul>
+              </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <%= yield %> 
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+    </div>    
+  </body>
+</html>

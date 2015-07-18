@@ -1,0 +1,83 @@
+<%= form_for(@apertac_pagina, :html=>{:class=>"form-horizontal", multipart: true}) do |f| %>
+  <% if @apertac_pagina.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@apertac_pagina.errors.count, "error") %> prohibited this apertac_pagina from being saved:</h2>
+
+      <ul>
+      <% @apertac_pagina.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :titulo , class: 'col-sm-2 control-label' %>
+    <div class="col-lg-7">
+      <%= f.text_field :titulo, class: 'form-control' %>  
+    </div>    
+  </div>
+  <div class="form-group">
+    <%= f.label :contenido, class: 'col-sm-2 control-label' %>
+    <div class="col-lg-7">
+      <%= f.text_area :contenido, :class => 'ckeditor' %>
+    </div>    
+  </div>
+  <div class="form-group">
+    <%= f.label :visible, class: 'col-sm-2 control-label' %>
+    <div class="col-lg-6">
+      <%= f.select(:visible, [
+                ['Visible', 'visible'],
+                ['No visible', 'no_visible']
+        ], class: 'form-control') %>      
+    </div>    
+  </div>
+
+
+  <div class="form-group">
+    <%= f.label :imagenes, class: 'col-sm-2 control-label' %>
+    <div class="col-lg-2">
+      <%= image_tag(@apertac_pagina.imagen1.url(:thumb)) if @apertac_pagina.imagen1? %>
+      <%= f.file_field :imagen1, class: 'form-control' %>      
+    </div>   
+    <div class="col-lg-2">
+      <%= image_tag(@apertac_pagina.imagen2.url(:thumb)) if @apertac_pagina.imagen2? %>
+      <%= f.file_field :imagen2, class: 'form-control' %>      
+    </div> 
+    <div class="col-lg-2">
+      <%= image_tag(@apertac_pagina.imagen3.url(:thumb)) if @apertac_pagina.imagen3? %>
+      <%= f.file_field :imagen3, class: 'form-control' %>      
+    </div>
+    <div class="col-lg-2">
+      <%= image_tag(@apertac_pagina.imagen4.url(:thumb)) if @apertac_pagina.imagen4? %>
+      <%= f.file_field :imagen4, class: 'form-control' %>      
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :imagenes, class: 'col-sm-2 control-label' %>
+    <div class="col-lg-2">
+      <%= image_tag(@apertac_pagina.imagen5.url(:thumb)) if @apertac_pagina.imagen5? %>
+      <%= f.file_field :imagen5, class: 'form-control' %>      
+    </div>   
+    <div class="col-lg-2">
+      <%= image_tag(@apertac_pagina.imagen6.url(:thumb)) if @apertac_pagina.imagen6? %>
+      <%= f.file_field :imagen6, class: 'form-control' %>      
+    </div> 
+    <div class="col-lg-2">
+      <%= image_tag(@apertac_pagina.imagen7.url(:thumb)) if @apertac_pagina.imagen7? %>
+      <%= f.file_field :imagen7, class: 'form-control' %>      
+    </div>
+    <div class="col-lg-2">
+      <%= image_tag(@apertac_pagina.imagen8.url(:thumb)) if @apertac_pagina.imagen8? %>
+      <%= f.file_field :imagen8, class: 'form-control' %>      
+    </div>
+  </div>
+
+  
+  <div class="form-group">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-6">
+      <%= f.submit class: 'btn btn-primary' %>  
+    </div>    
+  </div>  
+<% end %>
