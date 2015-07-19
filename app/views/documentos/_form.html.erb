@@ -1,4 +1,4 @@
-<%= form_for @documento, :html => { :class => "form-horizontal documento" } do |f| %>
+<%= form_for @documento, :html => { :class => "form-horizontal documento", multipart: true } do |f| %>
 
     <% if @documento.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
@@ -25,110 +25,122 @@
   <div class="control-group">
     <%= f.label :descripcion, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :descripcion, :class => 'form-control' %>
+      <%= f.text_area :descripcion, :class => 'form-control' %>
     </div>
     <%= error_span(@documento[:descripcion]) %>
   </div>
   <div class="control-group">
     <%= f.label :contenido, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :contenido, :class => 'form-control' %>
+      <%= f.text_area :contenido, rows: '5', cols: '10' ,:class => 'form-control' %>
     </div>
     <%= error_span(@documento[:contenido]) %>
   </div>
   <div class="control-group">
     <%= f.label :tipo_extension, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :tipo_extension, :class => 'form-control' %>
+      <%= f.select :tipo_extension, [
+            ['PDF (Acrobat Reader)', 'pdf'],
+            ['DOC (Microsoft Word)', 'doc'],
+            ['IMG (imagen jpg)', 'img'],
+            ['Otros', 'otro']
+        ],:class => 'form-control' %>
     </div>
     <%= error_span(@documento[:tipo_extension]) %>
   </div>
   <div class="control-group">
     <%= f.label :tipo_documento, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :tipo_documento, :class => 'form-control' %>
+      <%= f.select :tipo_documento,[
+            ['Documento de Gestion', 'gestion'],
+            ['Documentos Importantes', 'importante'],
+            ['Otros', 'otro']
+        ],:class => 'form-control' %>
     </div>
     <%= error_span(@documento[:tipo_documento]) %>
   </div>
   <div class="control-group">
     <%= f.label :visible, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :visible, :class => 'form-control' %>
+      <%= f.select :visible,[
+            ['Visible', 'visible'],
+            ['No Visible', 'no_visible']
+        ], :class => 'form-control' %>
     </div>
     <%= error_span(@documento[:visible]) %>
   </div>
   <div class="control-group">
     <%= f.label :archivo1, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :archivo1, :class => 'form-control' %>
+      <%= f.file_field :archivo1, :class => 'form-control' %>
     </div>
     <%= error_span(@documento[:archivo1]) %>
   </div>
   <div class="control-group">
     <%= f.label :archivo2, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :archivo2, :class => 'form-control' %>
+      <%= f.file_field :archivo2, :class => 'form-control' %>
     </div>
     <%= error_span(@documento[:archivo2]) %>
   </div>
   <div class="control-group">
     <%= f.label :archivo3, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :archivo3, :class => 'form-control' %>
+      <%= f.file_field :archivo3, :class => 'form-control' %>
     </div>
     <%= error_span(@documento[:archivo3]) %>
   </div>
   <div class="control-group">
     <%= f.label :archivo4, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :archivo4, :class => 'form-control' %>
+      <%= f.file_field :archivo4, :class => 'form-control' %>
     </div>
     <%= error_span(@documento[:archivo4]) %>
   </div>
   <div class="control-group">
     <%= f.label :archivo5, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :archivo5, :class => 'form-control' %>
+      <%= f.file_field :archivo5, :class => 'form-control' %>
     </div>
     <%= error_span(@documento[:archivo5]) %>
   </div>
   <div class="control-group">
     <%= f.label :imagen1, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :imagen1, :class => 'form-control' %>
+      <%= f.file_field :imagen1, :class => 'form-control' %>
     </div>
     <%= error_span(@documento[:imagen1]) %>
   </div>
   <div class="control-group">
     <%= f.label :imagen2, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :imagen2, :class => 'form-control' %>
+      <%= f.file_field :imagen2, :class => 'form-control' %>
     </div>
     <%= error_span(@documento[:imagen2]) %>
   </div>
   <div class="control-group">
     <%= f.label :imagen3, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :imagen3, :class => 'form-control' %>
+      <%= f.file_field :imagen3, :class => 'form-control' %>
     </div>
     <%= error_span(@documento[:imagen3]) %>
   </div>
   <div class="control-group">
     <%= f.label :imagen4, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :imagen4, :class => 'form-control' %>
+      <%= f.file_field :imagen4, :class => 'form-control' %>
     </div>
     <%= error_span(@documento[:imagen4]) %>
   </div>
   <div class="control-group">
     <%= f.label :imagen5, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :imagen5, :class => 'form-control' %>
+      <%= f.file_field :imagen5, :class => 'form-control' %>
     </div>
     <%= error_span(@documento[:imagen5]) %>
   </div>
 
-
+  <br />
   <%= f.submit nil, :class => 'btn btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
             documentos_path, :class => 'btn btn-default' %>

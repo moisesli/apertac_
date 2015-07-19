@@ -27,15 +27,15 @@
   <dt><strong><%= model_class.human_attribute_name(:archivo5) %>:</strong></dt>
   <dd><%= @documento.archivo5 %></dd>
   <dt><strong><%= model_class.human_attribute_name(:imagen1) %>:</strong></dt>
-  <dd><%= @documento.imagen1 %></dd>
+  <dd><%= image_tag @documento.imagen1.url(:thumb) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:imagen2) %>:</strong></dt>
-  <dd><%= @documento.imagen2 %></dd>
+  <dd><%= image_tag @documento.imagen2.url(:thumb) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:imagen3) %>:</strong></dt>
-  <dd><%= @documento.imagen3 %></dd>
+  <dd><%= image_tag @documento.imagen3.url(:thumb) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:imagen4) %>:</strong></dt>
-  <dd><%= @documento.imagen4 %></dd>
+  <dd><%= image_tag @documento.imagen4.url(:thumb) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:imagen5) %>:</strong></dt>
-  <dd><%= @documento.imagen5 %></dd>
+  <dd><%= image_tag @documento.imagen5.url(:thumb) %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

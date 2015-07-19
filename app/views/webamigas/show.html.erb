@@ -11,13 +11,13 @@
   <dt><strong><%= model_class.human_attribute_name(:url) %>:</strong></dt>
   <dd><%= @webamiga.url %></dd>
   <dt><strong><%= model_class.human_attribute_name(:logo) %>:</strong></dt>
-  <dd><%= @webamiga.logo %></dd>
+  <dd><%= image_tag @webamiga.logo.url(:thumb) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:contenido) %>:</strong></dt>
   <dd><%= @webamiga.contenido %></dd>
   <dt><strong><%= model_class.human_attribute_name(:imagen1) %>:</strong></dt>
-  <dd><%= @webamiga.imagen1 %></dd>
+  <dd><%= image_tag @webamiga.imagen1.url(:thumb) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:imagen2) %>:</strong></dt>
-  <dd><%= @webamiga.imagen2 %></dd>
+  <dd><%= image_tag @webamiga.imagen2.url(:thumb) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:visible) %>:</strong></dt>
   <dd><%= @webamiga.visible %></dd>
 </dl>

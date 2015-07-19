@@ -23,15 +23,15 @@
   <dt><strong><%= model_class.human_attribute_name(:contenido) %>:</strong></dt>
   <dd><%= @presindente.contenido %></dd>
   <dt><strong><%= model_class.human_attribute_name(:foto) %>:</strong></dt>
-  <dd><%= @presindente.foto %></dd>
+  <dd><%= image_tag @presindente.foto.url(:thumb) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:imagen1) %>:</strong></dt>
-  <dd><%= @presindente.imagen1 %></dd>
+  <dd><%= image_tag @presindente.imagen1.url(:thumb) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:imagen2) %>:</strong></dt>
-  <dd><%= @presindente.imagen2 %></dd>
+  <dd><%= image_tag @presindente.imagen2.url(:thumb) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:imagen3) %>:</strong></dt>
-  <dd><%= @presindente.imagen3 %></dd>
+  <dd><%= image_tag @presindente.imagen3.url(:thumb) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:imagen4) %>:</strong></dt>
-  <dd><%= @presindente.imagen4 %></dd>
+  <dd><%= image_tag @presindente.imagen4.url(:thumb) %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
