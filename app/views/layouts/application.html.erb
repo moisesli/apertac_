@@ -35,7 +35,7 @@
                         <li><a href="#">Separated link</a></li>
                         <li><a href="#">One more separated link</a></li>
                       </ul>
-                    </li>                  
+                    </li>
                     <li><a href="#">Noticias</a></li>
                     <li><a href="#">Servicios</a></li>
                     <li><a href="#">Web Amigas</a></li>
@@ -56,12 +56,105 @@
         </nav>
 
         <div class="row">
-            <div class="col-lg-3"></div>
+            <!-- Columna Izquierda -->
+            <div class="col-lg-3">
+              <div class="row">
+                <div class="col-md-12">
+                    <!-- It can be fixed with bootstrap affix http://getbootstrap.com/javascript/#affix-->
+                    <div id="sidebar" class="well sidebar-nav">
+                        <h5><i class="glyphicon glyphicon-home"></i>
+                            <small><b>PAGINAS</b></small>
+                        </h5>
+                        <ul class="nav nav-pills nav-stacked">
+                            <li class="active"><a href="#">Home</a></li>
+                            <% @paginas.each do |pagina| %>
+                              <tr>
+                                <td><li><a href="#"><%= pagina.titulo %></a></li></td>
+                              </tr>
+                            <% end %>  
+                        </ul>                        
+                    </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                 <div class="panel-heading">Directorio Apertac</div>
+                 <table class="table">
+                    <th>Empresa</th><th>Numero </th>
+                    <% @directorios.each do |directorio| %>
+                      <tr><td><a href="#"><%= directorio.nombre_empresa %></a></td><td><%= directorio.numero1[0,4] %>...</td></tr>
+                    <% end %>                    
+                 </table>
+              </div>
+              
+              
+            </div>            
+
+
+            <!-- Columna Central -->
             <div class="col-lg-6">
                 <%= yield %> 
             </div>
-            <div class="col-lg-3"></div>
+
+
+            <!-- Columna Derecha  -->
+            <div class="col-lg-3">
+              <!-- Block Presidente -->            
+              <div class="row">
+                <div class="col-lg-12">                  
+                  <div class="thumbnail">
+                    <%= image_tag @presidente.foto.url(:thumb) %>                    
+                    <div class="caption">
+                      <h3>Presidente Apertac</h3>
+                      <p><%= @presidente.descripcion %></p>
+                      <p>
+                        <a href="#" class="btn btn-primary" role="button">Ver Datos</a> 
+                        <a href="#" class="btn btn-default" role="button">Contactar</a></p>
+                    </div>
+                  </div>
+                </div>                
+              </div>
+
+              <!-- Block Documentos -->
+              <h3>Documentos <small>Ultimos 5 publicados</small></h3>   
+              <table class="table table-striped">
+                <tr>
+                  <th>Titulo</th>
+                  <th>Acciones</th>
+                </tr>
+                <% @documentos.each do  |documento| %>
+                  <tr>
+                    <td><%= documento.titulo %></td>
+                    <td>
+                      <a href="#" class="btn btn-primary btn-xs">
+                        <span class="glyphicon glyphicon-file"></span> Ver
+                      </a>
+                    </td>
+                  </tr>   
+              <%  end  %>
+              </table>
+
+              
+              <!-- Block Web amigas  -->
+              <div>
+                <h3>Web Amigas</h3> 
+                <hr />
+                <% @webamigas.each do |webamiga| %>
+                  <%= image_tag webamiga.logo.url(:thumb) %> <br />
+                  <br />
+                <% end %>
+              </div>
+
+              
+
+            </div>
+
+
         </div>
+
+      <footer>
+        <hr />
+        Apertac 2015 -2016
+      </footer>
     </div>    
   </body>
 </html>

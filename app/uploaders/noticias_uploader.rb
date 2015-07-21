@@ -12,7 +12,7 @@ class NoticiasUploader < CarrierWave::Uploader::Base
 
   version :thumb do
     #process resize_to_fill: [100, 50]
-    process resize_to_limit: [100, 100]
+    process resize_to_fill: [553, 250]
   end
   
 

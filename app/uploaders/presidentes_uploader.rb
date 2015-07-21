@@ -10,7 +10,7 @@ class PresidentesUploader < CarrierWave::Uploader::Base
 
   version :thumb do
     #process resize_to_fill: [100, 50]
-    process resize_to_limit: [100, 100]
+    process resize_to_limit: [250, 400]
   end
   
   # Choose what kind of storage to use for this uploader:

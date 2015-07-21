@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: apertac_production
-  username: apertac
-  password: <%= ENV['APERTAC_DATABASE_PASSWORD'] %>
+  username: moises
+  password: 
