@@ -40,13 +40,21 @@
 
 <!-- Block Noticias -->
 <h3>Noticias <small>Ultimos 5 publicados</small></h3>	
-<% @noticias.each do |noticia| %>
-	<div class="page-header">
-		<h3><%= noticia.titulo %></h3>		
-	</div>
-	<%= image_tag noticia.imagen1.url(:thumb) %>
+<hr />
+<% @noticias.each do |noticia| %>	
+	<h3><a href="#" title=""><%= noticia.titulo %></a></h3>		
+	
+	<%= image_tag noticia.imagen1.url(:thumb), class: 'img-thumbnail' %>
 	<br />
-	<p><%= noticia.resumen %></p>
+	<br>
+	<p class="lead"><%= noticia.resumen %></p>
+	<p>
+		<a href="#" class="btn btn-primary btn-sm">
+			<span class="glyphicon glyphicon-file"></span>
+			Leer mas..
+		</a>
+	</p>
+	<hr /> 
 	
 <% end %>
 

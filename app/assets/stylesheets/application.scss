@@ -36,6 +36,13 @@ body {
 $navbar-inverse-bg: #CB0A04;
 // color de letra del navbar
 $navbar-inverse-link-color: #D5D9E1;
+
+$link-color: #B50703;
+$link-hover-decoration: #CB0A04;
+$link-hover-color: #FF0A05;
+
+$btn-primary-bg: #CB0A04;
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 

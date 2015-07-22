@@ -32,7 +32,7 @@
   <div class="control-group">
     <%= f.label :contenido, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_area :contenido, :class => 'form-control' %>
+      <%= f.text_area :contenido, rows: '10',:class => 'form-control' %>
     </div>
     <%= error_span(@convocatoria[:contenido]) %>
   </div>
@@ -75,6 +75,7 @@
     <%= error_span(@convocatoria[:imagen4]) %>
   </div>
 
+  <br />
 
   <%= f.submit nil, :class => 'btn btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

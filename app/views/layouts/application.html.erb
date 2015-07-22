@@ -58,31 +58,44 @@
         <div class="row">
             <!-- Columna Izquierda -->
             <div class="col-lg-3">
-              <div class="row">
-                <div class="col-md-12">
-                    <!-- It can be fixed with bootstrap affix http://getbootstrap.com/javascript/#affix-->
-                    <div id="sidebar" class="well sidebar-nav">
-                        <h5><i class="glyphicon glyphicon-home"></i>
-                            <small><b>PAGINAS</b></small>
-                        </h5>
-                        <ul class="nav nav-pills nav-stacked">
-                            <li class="active"><a href="#">Home</a></li>
-                            <% @paginas.each do |pagina| %>
-                              <tr>
-                                <td><li><a href="#"><%= pagina.titulo %></a></li></td>
-                              </tr>
-                            <% end %>  
-                        </ul>                        
-                    </div>
-                </div>
-              </div>
               <div class="panel panel-default">
-                 <div class="panel-heading">Directorio Apertac</div>
-                 <table class="table">
-                    <th>Empresa</th><th>Numero </th>
+                <div class="panel-heading">
+                  <h3 class="panel-title">
+                    <span class="glyphicon glyphicon-log-out"></span>
+                    Paginas Apertac
+                  </h3>
+                </div>
+                <table class="table table-striped">
+                  <% @paginas.each do |pagina| %>
+                    <tr>
+                      <td>
+                        <span class="glyphicon glyphicon-share-alt"></span>
+                        <a href="#"><%= pagina.titulo %></a>
+                      </td>
+                    </tr>
+                  <% end %>
+                </table>
+              </div>
+              
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h1 class="panel-title">
+                    <span class="glyphicon glyphicon-list-alt"></span>
+                    Directorio Apertac
+                  </h1>
+                </div>
+                 <table class="table table-striped">                    
                     <% @directorios.each do |directorio| %>
-                      <tr><td><a href="#"><%= directorio.nombre_empresa %></a></td><td><%= directorio.numero1[0,4] %>...</td></tr>
-                    <% end %>                    
+                      <tr>
+                        <td><a href="#"><%= directorio.nombre_empresa[0,20] %></a></td>
+                        <td>
+                          <a href="#" class="btn btn-primary btn-xs">
+                            <span class="glyphicon glyphicon-search"></span>
+                            Ver Datos
+                          </a>
+                        </td>
+                      </tr>
+                    <% end %>
                  </table>
               </div>
               
@@ -92,7 +105,7 @@
 
             <!-- Columna Central -->
             <div class="col-lg-6">
-                <%= yield %> 
+                <%= yield %>
             </div>
 
 
@@ -100,38 +113,52 @@
             <div class="col-lg-3">
               <!-- Block Presidente -->            
               <div class="row">
-                <div class="col-lg-12">                  
-                  <div class="thumbnail">
-                    <%= image_tag @presidente.foto.url(:thumb) %>                    
-                    <div class="caption">
-                      <h3>Presidente Apertac</h3>
-                      <p><%= @presidente.descripcion %></p>
-                      <p>
-                        <a href="#" class="btn btn-primary" role="button">Ver Datos</a> 
-                        <a href="#" class="btn btn-default" role="button">Contactar</a></p>
+                <% @presidentes.each do |presidente| %>
+                  <div class="col-lg-12">                  
+                    <div class="thumbnail">
+                      <%= image_tag presidente.foto.url(:thumb) %>                    
+                      <div class="caption">
+                        <h3>Presidente Apertac</h3>
+                        <p><%= presidente.descripcion %></p>
+                        <p>
+                          <a href="#" class="btn btn-primary" role="button">Ver Datos</a> 
+                          <a href="#" class="btn btn-default" role="button">Contactar</a></p>
+                      </div>
                     </div>
-                  </div>
-                </div>                
+                  </div>       
+                <% end %>         
               </div>
 
               <!-- Block Documentos -->
-              <h3>Documentos <small>Ultimos 5 publicados</small></h3>   
-              <table class="table table-striped">
-                <tr>
-                  <th>Titulo</th>
-                  <th>Acciones</th>
-                </tr>
-                <% @documentos.each do  |documento| %>
-                  <tr>
-                    <td><%= documento.titulo %></td>
-                    <td>
-                      <a href="#" class="btn btn-primary btn-xs">
-                        <span class="glyphicon glyphicon-file"></span> Ver
-                      </a>
-                    </td>
-                  </tr>   
-              <%  end  %>
-              </table>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">                    
+                      <span class="glyphicon glyphicon-eye-open"></span> 
+                      Documentos <small>ultimos</small></a>
+
+                </div>
+                
+                  <table class="table table-hover">
+                    <% i = 1 %>   
+                    <% @documentos.each do  |documento| %>
+                      <tr>
+                        <td>
+                          <%= i %>.- 
+                          <%= documento.titulo[0,21] %>
+                          <% i = i + 1 %>
+                        </td>  
+                        <td>
+                          <a href="#" class="btn btn-primary btn-xs">
+                            <span class="glyphicon glyphicon-eye-open"></span> Ver
+                          </a>
+                        </td>
+                      </tr>                      
+                    <%  end  %>
+                  </table>
+                
+              </div>
+
+              
 
               
               <!-- Block Web amigas  -->
