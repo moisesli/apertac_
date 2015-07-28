@@ -1,0 +1,21 @@
+<ol class="breadcrumb">
+  <li><a href="/">Inicio</a></li>  
+  <li class="active">Pagina</li>
+</ol>
+
+<h1><%= @pagina.titulo %></h1>
+<hr />
+<p>
+	<%= @pagina.contenido.html_safe %>
+</p>
+<p><%= image_tag @pagina.imagen1.url(:thumb) %></p>
+<p><%= image_tag @pagina.imagen2.url(:thumb) %></p>
+<p><%= image_tag @pagina.imagen3.url(:thumb) %></p>
+<p><%= image_tag @pagina.imagen4.url(:thumb) %></p>
+<p><%= image_tag @pagina.imagen5.url(:thumb) %></p>
+<p><%= image_tag @pagina.imagen6.url(:thumb) %></p>
+<p><%= image_tag @pagina.imagen7.url(:thumb) %></p>
+<p><%= image_tag @pagina.imagen8.url(:thumb) %></p>
+<p>
+	<%= link_to '<span class="glyphicon glyphicon-arrow-left"></span> Regresar'.html_safe, '/', class: 'btn btn-primary' %>
+</p>

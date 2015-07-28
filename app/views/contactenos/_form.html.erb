@@ -1,0 +1,80 @@
+<%= form_for @contacto, :html => { :class => "form-horizontal contacto" } do |f| %>
+
+    <% if @contacto.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@contacto.errors.count, "error") %> prohibited this contacto from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @contacto.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :asunto, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :asunto, :class => 'form-control' %>
+    </div>
+    <%= error_span(@contacto[:asunto]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :tipo, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :tipo, :class => 'form-control' %>
+    </div>
+    <%= error_span(@contacto[:tipo]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :nombre, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :nombre, :class => 'form-control' %>
+    </div>
+    <%= error_span(@contacto[:nombre]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :email, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :email, :class => 'form-control' %>
+    </div>
+    <%= error_span(@contacto[:email]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :contenido, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :contenido, :class => 'form-control' %>
+    </div>
+    <%= error_span(@contacto[:contenido]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :adjunto1, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :adjunto1, :class => 'form-control' %>
+    </div>
+    <%= error_span(@contacto[:adjunto1]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :adjunto2, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :adjunto2, :class => 'form-control' %>
+    </div>
+    <%= error_span(@contacto[:adjunto2]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :adjunto3, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :adjunto3, :class => 'form-control' %>
+    </div>
+    <%= error_span(@contacto[:adjunto3]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            contactenos_path, :class => 'btn btn-default' %>
+
+<% end %>

@@ -1,0 +1,20 @@
+<ol class="breadcrumb">
+  <li><a href="/inicios">Inicio</a></li>
+  <li><a href="/inicios/anuncios">Anuncios</a></li>
+  <li class="active">Detalle</li>
+</ol>
+
+<h1><%= @anunciose.titulo %> <small>Anuncio</small></h1>
+<hr />
+<p class="lead">
+	<%= @anunciose.descripcion %>
+</p>
+<p>
+	<%= image_tag @anunciose.imagen.url(:thumb_index), class: 'img-responsive' %>	
+</p>
+<p>
+	<%= @anunciose.contenido %>
+</p>
+<br />
+
+<%= link_to '<span class="glyphicon glyphicon-arrow-left"></span> Regresar'.html_safe, '/inicios/anuncios/', class: 'btn btn-primary' %>

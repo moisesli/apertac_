@@ -17,6 +17,7 @@
    inflect.irregular 'documento', 'documentos'
    inflect.irregular 'anuncio', 'anuncios'
    inflect.irregular 'webamiga', 'webamigas'
+   inflect.irregular 'contacto', 'contactenos' 
 #   inflect.uncountable %w( fish sheep )
  end
 

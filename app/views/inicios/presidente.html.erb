@@ -1,0 +1,45 @@
+<ol class="breadcrumb">
+  <li><a href="/">Inicio</a></li>
+  <li class="active"> Presidente APERTAC</li>
+</ol>
+
+<h1><%= @presidente.nombre %> <small>Presidente APERTAC</small></h1>
+<hr />
+
+<dl class="dl-horizontal">
+	<dt><strong>Nombre : </strong></dt>
+	<dd><%= @presidente.nombre %></dd>
+	<dt><strong>Apellido : </strong></dt>
+	<dd><%= @presidente.apellido %></dd>
+	<dt><strong>DNI : </strong></dt>
+	<dd><%= @presidente.dni %></dd>
+
+	<dt><strong>Telefono 1 : </strong></dt>
+	<dd><%= @presidente.telefono1 %></dd>
+
+	<dt><strong>Telefono 2 : </strong></dt>
+	<dd><%= @presidente.telefono2 %></dd>
+
+	<dt><strong>RUC : </strong></dt>
+	<dd><%= @presidente.ruc %></dd>
+
+	<dt><strong>Email : </strong></dt>
+	<dd><%= @presidente.email %></dd>
+
+	<dt><strong>Descripcion</strong></dt>
+	<dd><%= @presidente.descripcion %></dd>
+
+	<dt><strong>Contenido</strong></dt>
+	<dd><%= @presidente.contenido %></dd>
+
+	<dt><strong>Imagenes</strong></dt>
+	<dd>
+		<%= image_tag @presidente.foto.url(:thumb) %><br />
+		<%= image_tag @presidente.imagen1.url(:thumb) %><br />
+		<%= image_tag @presidente.imagen2.url(:thumb) %><br />
+		<%= image_tag @presidente.imagen3.url(:thumb) %><br />
+		<%= image_tag @presidente.imagen4.url(:thumb) %><br />
+	</dd>	
+</dl>
+
+<%= link_to '<span class="glyphicon glyphicon-arrow-left"></span> Regresar'.html_safe, '/', class: 'btn btn-primary' %>

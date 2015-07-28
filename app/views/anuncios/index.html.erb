@@ -20,7 +20,7 @@
         <td><%= anuncio.titulo %></td>
         <td><%= anuncio.visible %></td>
         <td><%= anuncio.tipo %></td>
-        <td><%=l anuncio.created_at %></td>
+        <td><%= image_tag anuncio.imagen.url(:thumb) %></td>
         <td>
           <%= link_to 'Ver', anuncio, class: 'btn btn-default btn-sm btn-xs' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_anuncio_path(anuncio), :class => 'btn btn-default btn-xs' %>

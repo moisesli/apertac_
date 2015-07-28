@@ -1,0 +1,24 @@
+<ol class="breadcrumb">
+  <li><a href="/">Inicio</a></li>
+  <li class="active">noticias</li>
+</ol>
+
+<h1>Noticias</h1>
+<hr>
+
+<% @noticias.each do |noticia| %>
+	<h3>
+		<a href="/inicios/noticia/<%= noticia.id %>">
+			<%= noticia.titulo %>
+		</a>		
+	</h3>	
+	<p class="img-thumbnail">
+		<%= image_tag noticia.imagen1.url(:thumb) %>
+	</p>
+	<p class="lead">
+		<%= noticia.resumen %>
+	</p>
+	<hr />
+<% end %>
+
+<%= will_paginate @noticias, renderer: BootstrapPagination::Rails %>

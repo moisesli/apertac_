@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :contactenos
   resources :anuncios
   resources :webamigas
   resources :documentos
@@ -10,7 +11,21 @@ Rails.application.routes.draw do
   get 'admins/index'
 
   get 'inicios/index'
-
+  get 'inicios/contactenos_ok'
+  get 'inicios/contactenos'
+  get 'inicios/noticias'
+  get 'inicios/noticia/:id' => 'inicios#noticia'
+  get 'inicios/pagina/:id' => 'inicios#pagina'
+  get 'inicios/presidente/:id' => 'inicios#presidente'
+  get 'inicios/documento/:id' => 'inicios#documento'
+  get 'inicios/documentos'
+  get 'inicios/directorio/:id' => 'inicios#directorio'
+  get 'inicios/directorios'  
+  get 'inicios/anuncios'  
+  get 'inicios/anuncio/:id' => 'inicios#anuncio'
+  get 'inicios/web_amigas'
+  get 'inicios/web_amiga/:id' => 'inicios#web_amiga'
+ 
   devise_for :users
   resources :posts
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,6 +1,9 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h4><%= t('.sign_in', :default => "Sign inmoises") %></h4>
+    <h4>
+
+      <%= t('.sign_in', :default => "Login de Usuario") %>
+    </h4>
   </div>
   <div class="panel-body">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: "form" }) do |f| %>
@@ -24,4 +27,4 @@
     <% end %>
   </div>
 </div>
-<%= render "devise/shared/links" %>
+<%= render "users/shared/links" %>

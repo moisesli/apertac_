@@ -16,8 +16,9 @@ gem 'devise-bootstrap-views'
 gem 'rails_layout'
 gem 'carrierwave'
 gem 'rmagick'
-gem 'ckeditor_rails'
 gem "twitter-bootstrap-rails"
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

@@ -1,0 +1,36 @@
+<ol class="breadcrumb">
+  <li><a href="/inicios">Inicio</a></li>
+  <li class="active">Webs Amigas</li>
+</ol>
+
+<h1>Webs Amigas <small>APERTAC</small></h1>
+<hr />
+
+<% @web_amigas.each do |web_amiga| %>
+	<dl class="dl-horizontal">
+		<dt><strong>#id : </strong></dt>
+		<dd><%= web_amiga.id %></dd>
+
+		<dt><strong>Titulo : </strong></dt>
+		<dd><%= web_amiga.titulo %></dd>
+
+		<dt><strong>URL : </strong></dt>
+		<dd><%= web_amiga.url %></dd>
+
+		<dt><strong>Link : </strong></dt>
+		<dd>
+			<%= link_to '<span class="glyphicon glyphicon-link"></span> Visitar'.html_safe, "#{web_amiga.url}", target: '_blank', class: 'btn btn-default btn-xs' %>
+		</dd>
+
+		<dt><strong>Logo : </strong></dt>
+		<dd><%= image_tag web_amiga.logo.url(:thumb) %></dd>
+	</dl>
+
+	<hr />
+<% end %>
+
+<%= will_paginate @web_amigas, renderer: BootstrapPagination::Rails %>
+
+<br />
+
+<%= link_to '<span class="glyphicon glyphicon-arrow-left"></span> Regresar'.html_safe, '/', class: 'btn btn-primary' %>

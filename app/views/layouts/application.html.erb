@@ -20,29 +20,33 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">APERTAC</a>
+                <a class="navbar-brand" href="/">Inicio</a>
               </div>
               <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
+                    
+                    <li><a href="/inicios/noticias">Noticias</a></li>
+                    <% @presidentes.each do |presidente| %>
+                      <li><a href="/inicios/presidente/<%= presidente.id %>">Presidente</a></li>  
+                    <% end %>
+                    <li><a href="/inicios/directorios">Directorio</a></li>                    
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Paginas <span class="caret"></span></a>
                       <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li class="dropdown-header">Nav header</li>
-                        <li><a href="#">Separated link</a></li>
-                        <li><a href="#">One more separated link</a></li>
+                        <% @paginas.each do |pagina| %>
+                          <li>
+                            <a href="/inicios/pagina/<%= pagina.id %>">
+                              <span class="glyphicon glyphicon-arrow-right"></span> 
+                              <%= pagina.titulo %>
+                            </a>
+                          </li>
+                        <% end %>
                       </ul>
                     </li>
-                    <li><a href="#">Noticias</a></li>
-                    <li><a href="#">Servicios</a></li>
-                    <li><a href="#">Web Amigas</a></li>
-                    <li><a href="#">Ubicacion</a></li>
-                    <li><a href="#">Convocatorias</a></li>
-                    <li><a href="#about">Directorio</a></li>
-                    <li><a href="#contact">Contactenos</a></li>
+                    <li><a href="/inicios/documentos">Documentos</a></li>
+                    <li><a href="/inicios/contactenos?contacto%5Basunto%5D=&contacto%5Bcontenido%5D=">Contactenos</a></li>
+                    <li><a href="/inicios/anuncios">Anuncios</a></li>
+                    <li><a href="/inicios/web_amigas">Web Amigas</a></li>
                 </ul>
                 <ul class="nav navbar-nav pull-right">
                   <li>
@@ -70,13 +74,14 @@
                     <tr>
                       <td>
                         <span class="glyphicon glyphicon-share-alt"></span>
-                        <a href="#"><%= pagina.titulo %></a>
+                        <a href="/inicios/pagina/<%= pagina.id %>"><%= pagina.titulo %></a>
                       </td>
                     </tr>
                   <% end %>
                 </table>
               </div>
               
+              <!-- blocl directorio-->
               <div class="panel panel-default">
                 <div class="panel-heading">
                   <h1 class="panel-title">
@@ -87,16 +92,42 @@
                  <table class="table table-striped">                    
                     <% @directorios.each do |directorio| %>
                       <tr>
-                        <td><a href="#"><%= directorio.nombre_empresa[0,20] %></a></td>
+                        <td><a href="/inicios/directorio/<%= directorio.id %>"><%= directorio.nombre_empresa[0,20] %></a></td>
                         <td>
-                          <a href="#" class="btn btn-primary btn-xs">
+                          <a href="/inicios/directorio/<%= directorio.id %>" class="btn btn-primary btn-xs">
                             <span class="glyphicon glyphicon-search"></span>
-                            Ver Datos
+                            Datos
                           </a>
                         </td>
                       </tr>
                     <% end %>
                  </table>
+              </div>
+
+              <!-- block contactenos -->
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h1 class="panel-title">
+                    <a href="/inicios/contactenos">
+                      <span class="glyphicon glyphicon-th-list"></span>
+                      Contactenos
+                    </a>                    
+                  </h1>
+                </div>
+                <div class="panel-body">
+                  <form method="get" action="/inicios/contactenos.html">                   
+                    
+                    <input type="text" name="contacto[asunto]" class="form-control" placeholder="Asunto">
+                    <br>
+                    <textarea class="form-control" name="contacto[contenido]" rows="5">Contenido..</textarea>
+                    <br>
+                    <button class="btn btn-primary btn-lg btn-block" type="submit">
+                      <span class="glyphicon glyphicon-lock"></span>
+                      Enviar Informacion
+                    </button>                   
+                    
+                  </form>
+                </div>  
               </div>
               
               
@@ -121,8 +152,8 @@
                         <h3>Presidente Apertac</h3>
                         <p><%= presidente.descripcion %></p>
                         <p>
-                          <a href="#" class="btn btn-primary" role="button">Ver Datos</a> 
-                          <a href="#" class="btn btn-default" role="button">Contactar</a></p>
+                          <a href="/inicios/presidente/<%= presidente.id %>" class="btn btn-primary" role="button">Ver Datos</a> 
+                          <a href="/inicios/contactenos?contacto%5Basunto%5D=&contacto%5Bcontenido%5D=" class="btn btn-default" role="button">Contactar</a></p>
                       </div>
                     </div>
                   </div>       
@@ -135,7 +166,6 @@
                   <h3 class="panel-title">                    
                       <span class="glyphicon glyphicon-eye-open"></span> 
                       Documentos <small>ultimos</small></a>
-
                 </div>
                 
                   <table class="table table-hover">
@@ -148,7 +178,7 @@
                           <% i = i + 1 %>
                         </td>  
                         <td>
-                          <a href="#" class="btn btn-primary btn-xs">
+                          <a href="/inicios/documento/<%= documento.id %>" class="btn btn-primary btn-xs">
                             <span class="glyphicon glyphicon-eye-open"></span> Ver
                           </a>
                         </td>
@@ -166,7 +196,10 @@
                 <h3>Web Amigas</h3> 
                 <hr />
                 <% @webamigas.each do |webamiga| %>
-                  <%= image_tag webamiga.logo.url(:thumb) %> <br />
+                  <a href="/inicios/web_amiga/<%= webamiga.id %>" class="img-thumbnail">
+                    <%= image_tag webamiga.logo.url(:thumb) %> 
+                  </a>
+                  <br />
                   <br />
                 <% end %>
               </div>
@@ -180,7 +213,12 @@
 
       <footer>
         <hr />
-        Apertac 2015 -2016
+        <div class="row">
+          <div class="col-lg-8">Apertac 2015 -2016</div>
+          <div class="col-lg-4 text-right">By Abraham M. Linares.</div>
+        </div>
+        
+
       </footer>
     </div>    
   </body>

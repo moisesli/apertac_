@@ -1,38 +1,54 @@
 <!-- Block Anuncios -->
-<div class="row">
-	<div class="col-md-12">
-	    <div class="panel with-nav-tabs panel-default">
-	        <div class="panel-heading">
-	                <ul class="nav nav-tabs">
-		                <% index = 0 %>
-		                <% @anuncios.each do |anuncio| %>
-		                	<% if index == 0 %>
-		                		<li class="active"><a href="#tab<%= anuncio.id %>default" data-toggle="tab">Anuncio<%= anuncio.id %></a></li>
-		                	<%  else %>
-		                		<li><a href="#tab<%= anuncio.id %>default" data-toggle="tab">Anuncio<%= anuncio.id %></a></li>
-		                	<% end %>
-		                	<% index = 1 %>
-		                <% end %>	                    	                    
-	                </ul>
-	        </div>
-	        <div class="panel-body">
-	            <div class="tab-content">
-	            	<% index = 0 %>
-	                <% @anuncios.each do |anuncio| %>
-	                	<% if index == 0 %>
-	                		<div class="tab-pane fade in active" id="tab<%= anuncio.id %>default">
-	                		<%= image_tag anuncio.imagen %>
-	                		</div>
-	                	<%  else %>
-	                		<div class="tab-pane fade" id="tab<%= anuncio.id %>default"><%= image_tag anuncio.imagen %></div>
-	                	<% end %>
-	                	<% index = 1 %>
-	                <% end %>	     
-	            </div>
-	        </div>
-	    </div>
-	</div>
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+  	<% index = 0 %>
+  	<% @anuncios.each do |anuncio| %>
+  		<% if index == 0 %>
+  			<div class="item active">
+				  <%= image_tag anuncio.imagen.url(:thumb_index) %>		   
+				  <div class="carousel-caption">
+				    <h3><%= anuncio.titulo %></h3>
+				    <p>
+				    	<%= anuncio.descripcion %>				    	
+				    </p>
+				    <%= link_to 'Ver mas..'.html_safe, "/inicios/anuncio/#{anuncio.id}", class: 'btn btn-primary btn-sm' %>
+
+				  </div>
+				</div>				
+		<%  else %>
+			<div class="item">
+		      <%= image_tag anuncio.imagen.url(:thumb_index) %>		
+		      <div class="carousel-caption">
+		        <h3><%= anuncio.titulo %></h3>
+		        <p><%= anuncio.descripcion %></p>
+		        <%= link_to '<span class="glyphicon glyphicon-eye-open"></span> Ver mas..'.html_safe, "/inicios/anuncio/#{anuncio.id}", class: 'btn btn-primary btn-sm' %>
+		      </div>
+		    </div>
+		<% end %>
+		<% index = 1 %>
+
+  	<% end %>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
 </div>
+
 
 
 
@@ -42,14 +58,14 @@
 <h3>Noticias <small>Ultimos 5 publicados</small></h3>	
 <hr />
 <% @noticias.each do |noticia| %>	
-	<h3><a href="#" title=""><%= noticia.titulo %></a></h3>		
+	<h3><a href="/inicios/noticia/<%= noticia.id %>" title=""><%= noticia.titulo %></a></h3>		
 	
 	<%= image_tag noticia.imagen1.url(:thumb), class: 'img-thumbnail' %>
 	<br />
 	<br>
 	<p class="lead"><%= noticia.resumen %></p>
 	<p>
-		<a href="#" class="btn btn-primary btn-sm">
+		<a href="/inicios/noticia/<%= noticia.id %>" class="btn btn-primary btn-sm">
 			<span class="glyphicon glyphicon-file"></span>
 			Leer mas..
 		</a>

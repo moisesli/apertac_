@@ -1,0 +1,30 @@
+<ol class="breadcrumb">
+  <li><a href="/">Inicio</a></li>
+  <li><a href="/inicios/documentos">Documentos</a></li>
+  <li class="active">Detalle</li>
+</ol>
+
+<h1>Documentos</h1>
+<hr />
+
+<table class="table table-striped">
+	<tr>
+		<th>#id</th>
+		<th>Nombre</th>
+		<th>Tipo Documento</th>
+		<th>Acciones</th>
+	</tr>
+	<% @documentoses.each do |documentose| %>
+		<tr>
+			<td><%= documentose.id %></td>
+			<td><%= documentose.titulo %></td>
+			<td><%= documentose.tipo_documento %></td>
+			<td><%= link_to '<span class="glyphicon glyphicon-file"></span> Ver'.html_safe, "/inicios/documento/#{documentose.id}", class: 'btn btn-primary btn-xs' %></td>
+		</tr>
+	<% end %>
+</table>
+
+<%= will_paginate @documentoses, renderer: BootstrapPagination::Rails %>
+
+<br />
+<%= link_to '<span class="glyphicon glyphicon-arrow-left"></span> Regresar'.html_safe, '/', class: 'btn btn-primary' %>

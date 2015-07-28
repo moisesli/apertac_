@@ -1,0 +1,94 @@
+<ol class="breadcrumb">
+  <li><a href="/">Inicio</a></li>
+  <li><a href="/inicios/documentos">Documentos</a></li>
+  <li class="active">Documento <%= params[:id] %></li>
+</ol>
+
+<h1><%= @documento.titulo %> <small>Documento</small></h1>
+<hr />
+
+<dl class="dl-horizontal">
+	<dt><strong>Titulo : </strong></dt>
+	<dd><%= @documento.titulo %></dd>
+
+	<dt><strong>Descripcion : </strong></dt>
+	<dd><%= @documento.descripcion %></dd>
+
+	<dt><strong>Extension : </strong></dt>
+	<dd><%= @documento.tipo_extension %></dd>
+
+	<dt><strong>Tipo Documento : </strong></dt>
+	<dd><%= @documento.tipo_documento %></dd>
+
+	<dt><strong>Contenido : </strong></dt>
+	<dd><%= @documento.contenido %></dd>
+
+	<dt><strong>Archivos : </strong></dt>
+	<dd>
+		<% if @documento.archivo1.blank? %>
+			<a href="<%= @documento.archivo1 %>" class="btn btn-info btn-sm"><span class ="glyphicon glyphicon-file"></span> Archivo1</a>
+		<% end %>
+
+		<% if @documento.archivo2.blank? %>
+			<a href="<%= @documento.archivo2 %>" class="btn btn-info btn-sm"><span class ="glyphicon glyphicon-file"></span> Archivo2</a>
+		<% end %>
+
+		<% if @documento.archivo3.blank? %>
+			<a href="<%= @documento.archivo3 %>" class="btn btn-info btn-sm"><span class ="glyphicon glyphicon-file"></span> Archivo3</a>
+		<% end %>
+
+		<% if @documento.archivo4.blank? %>
+			<a href="<%= @documento.archivo4 %>" class="btn btn-info btn-sm"><span class ="glyphicon glyphicon-file"></span> Archivo4</a>
+		<% end %>
+		
+		<% if @documento.archivo5.blank? %>
+			<a href="<%= @documento.archivo5 %>" class="btn btn-info btn-sm"><span class ="glyphicon glyphicon-file"></span> Archivo5</a>
+		<% end %>
+	</dd>
+
+	<dt><strong>Imagenes : </strong></dt>
+	<dd>
+		<div class="row">
+			<% if @documento.imagen1?  %>				
+				<div class="col-lg-3">
+					<a href="<%= @documento.imagen1 %>" class="thumbnail">
+				      <%= image_tag @documento.imagen1.url(:thumb) %>
+				    </a>
+				</div>
+			<% end %>	
+			<% if @documento.imagen2?  %>				
+				<div class="col-lg-3">
+					<a href="<%= @documento.imagen2 %>" class="thumbnail">
+				      <%= image_tag @documento.imagen2.url(:thumb) %>
+				    </a>
+				</div>				
+			<% end %>
+			<% if @documento.imagen3?  %>				
+				<div class="col-lg-3">
+					<a href="<%= @documento.imagen3 %>" class="thumbnail">
+				      <%= image_tag @documento.imagen3.url(:thumb) %>
+				    </a>
+				</div>				
+			<% end %>
+			<% if @documento.imagen4?  %>				
+				<div class="col-lg-3">
+					<a href="<%= @documento.imagen4 %>" class="thumbnail">
+				      <%= image_tag @documento.imagen4.url(:thumb) %>
+				    </a>
+				</div>				
+			<% end %>
+			<% if @documento.imagen5?  %>				
+				<div class="col-lg-3">
+					<a href="<%= @documento.imagen5 %>" class="thumbnail">
+				      <%= image_tag @documento.imagen5.url(:thumb) %>
+				    </a>
+				</div>				
+			<% end %>
+			
+	</dd>
+
+</dl>
+
+<br />
+
+<%= link_to '<span class="glyphicon glyphicon-arrow-left"></span> Regresar'.html_safe, '/', class: 'btn btn-primary' %>

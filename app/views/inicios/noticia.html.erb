@@ -1,0 +1,21 @@
+<ol class="breadcrumb">
+  <li><a href="/">Inicio</a></li>
+  <li><a href="/inicios/noticias">Noticias</a></li>
+  <li class="active">Detalle <%= params[:id] %></li>
+</ol>
+
+<h1><%= @noticia.titulo %></h1>
+<hr />
+<p class="lead">
+	<%= @noticia.resumen %>
+</p>
+<p>
+	<%= image_tag @noticia.imagen1.url(:thumb), class: 'img-thumbnail' %>
+</p>
+<p>
+	<%= @noticia.contenido %>
+</p>
+<p><%= image_tag @noticia.imagen2.url(:thumb), class: 'img-thumbnail' %></p>
+<p><%= image_tag @noticia.imagen3.url(:thumb), class: 'img-thumbnail' %></p>
+<p><%= image_tag @noticia.imagen4.url(:thumb), class: 'img-thumbnail' %></p>
+<%= link_to '<span class="glyphicon glyphicon-arrow-left"></span> Regresar'.html_safe, '/inicios/noticias', class: 'btn btn-primary' %>

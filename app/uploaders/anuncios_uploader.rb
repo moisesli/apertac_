@@ -6,11 +6,16 @@ class AnunciosUploader < CarrierWave::Uploader::Base
    include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
 
-  process resize_to_fit: [500, 400]
+  process resize_to_fit: [1000, 900]
 
   version :thumb do
     #process resize_to_fill: [100, 50]
     process resize_to_limit: [100, 100]
+  end
+
+  version :thumb_index do
+    #process resize_to_fill: [100, 50]
+    process resize_to_fill: [700,500]
   end
 
   # Choose what kind of storage to use for this uploader:

@@ -1,0 +1,30 @@
+<ol class="breadcrumb">
+  <li><a href="/inicios">Inicio</a></li>
+  <li class="active">Directorios</li>
+</ol>
+
+<h1>Directorios</h1>
+<hr />
+
+<table class="table table-striped">
+	<tr>
+		<th>#id</th>
+		<th>Empresa</th>
+		<th>Numero</th>
+		<th>Acciones</th>
+	</tr>
+	<% @directorioses.each do |directoriose| %>
+		<tr>
+			<td><%= directoriose.id %></td>
+			<td><%= directoriose.nombre_empresa %></td>
+			<td><%= directoriose.numero1 %></td>
+			<td><%= link_to '<span class="glyphicon glyphicon-eye-open"></span> Ver'.html_safe, "/inicios/directorio/#{directoriose.id}", class: 'btn btn-default btn-xs' %></td>
+		</tr>
+	<% end %>
+</table>
+
+<%= will_paginate @directorioses, renderer: BootstrapPagination::Rails %>
+
+<br />
+
+<%= link_to '<span class="glyphicon glyphicon-arrow-left"></span> Regresar'.html_safe, '/', class: 'btn btn-primary' %>
