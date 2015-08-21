@@ -15,7 +15,7 @@ class AnunciosUploader < CarrierWave::Uploader::Base
 
   version :thumb_index do
     #process resize_to_fill: [100, 50]
-    process resize_to_fill: [700,500]
+    process resize_to_fill: [1200,440]
   end
 
   # Choose what kind of storage to use for this uploader:
