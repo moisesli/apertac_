@@ -22,9 +22,10 @@
             <%= f.label :remember_me %>
           </label>
         </div>
-        <% end %>
-      <%= f.submit  t('.sign_in', :default => "Sign in"), class: "btn btn-primary" %>
+        <% end %>      
+      <%= f.submit  t('.sign_in', :default => "Entrar"), class: "btn btn-primary" %>
+      <%= link_to '<span class="glyphicon glyphicon-arrow-left"></span> Regresar'.html_safe, '/', class: 'btn btn-default' %>
     <% end %>
   </div>
 </div>
-<%= render "users/shared/links" %>
+
